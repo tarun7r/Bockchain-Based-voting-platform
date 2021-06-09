@@ -33,10 +33,31 @@ It is always interesting to learn things if it’s visually explained. Hence dia
 According to above diagram, voter needs to enter his/her credentials in order to vote. All data is then encrypted and stored as a transaction. This transaction is then broadcasted to every node in network, which in turn is then verified. If network approves transaction, it is stored in a block and added to chain. Note that once a block is added into chain, it stays there forever and can’t be updated. Users can now see results and also trace back transaction if they want.<br>
 
 Since current voting systems don’t suffice to security needs ofmodern generation, there is a need to build a system that leverages security, convenience, and trust involved in voting process. Hence voting systems make use of Blockchain technology to add an extra layer of security and encourage people to vote from any time, anywhere without any hassle and makes voting process more cost-effective and time-saving.<br>
+<p>Theory ref: https://www.geeksforgeeks.org/decentralized-voting-system-using-blockchain/</P>
+<p>The coding workflow is done using this referance article and the output working model is described below step by step</p>
 
-
-
-
+<ul>
+  <li>Home Page - Voting portal | Admin portal | Vote status </li><br>
+  <img src="images/home page.jpg"><br>
+  <li>Voter Sign in page | Aadhar Number, Password | Note: Password can be replaced with Finger Print / Retinal scan </li><br>
+  <img src="images/sign in.jpg"><br>
+  <li>Voting Portal | Select your candidate and click on Vote button </li><br>
+   <img src="images/vote portal.jpg"><br>
+  <li>Unique Vote Hash | Vote status </li><br>
+   <img src="images/vote hash.jpg"><br>
+  <li>Admin portal Sign in | Default name = 'root' Password = 'root'</li><br>
+   <img src="images/admin sign in.jpg"><br>
+  <li>Admin Portal | End Election | View Stats</li><br>
+   <img src="images/admin portal.jpg"><br>
+  <li>End Election | View Results</li><br>
+   <img src="images/result portal.jpg"><br></ul>
+   <h2>Vote Traceback </h2>
+   <p>You can trace your Vote status using this Unique Vote Hash and your Password anytime</p>
+   <ul>
+  <li>Vote Tracking | Vote Hash | Password | Note: Password can be replaced with Finger Print / Retinal scan </li><br>
+  <img src="images/vote cross check portal sign in.jpg"><br>
+  <li>Vote Status | Vote Hash | Your choice | This can be accessesd only using the Vote Hash and your Password </li><br>
+  <img src="images/vote cross check.jpg"><br>
 
 
 
