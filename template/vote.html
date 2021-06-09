@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+   <title>Voting Portal</title>
+   <meta charset="utf-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+   <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" />
+</head>
+
+
+<!-- Wrapper -->
+<div id="wrapper">
+
+
+   <!-- Banner -->
+   <section id="banner" class="major">
+      <div class="inner">
+         <header class="major">
+            <center><img src={{ url_for('static', filename='nrm.jpg') }} width="600" height="350" /></center>
+
+            <form action="http://localhost:5000/thank" method="POST">
+               <select id="poll" name="poll">
+                  <option>Please select your option here 🗳️</option>
+                  <option value="a">Cristiano Ronaldo </option>
+                  <option value="b">Neymar </option>
+                  <option value="c">Lionel Messi </option>
+
+               </select>
+               <br>
+               <center><input type="submit" value="Vote" class="primary"></center>
+            </form>
+         </header>
+         <div class="content"></div>
+
+      </div>
+
+</div>
+</section>
+
+
+</div>
+
+</body>
