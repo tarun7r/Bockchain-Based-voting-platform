@@ -58,6 +58,12 @@ Since current voting systems don’t suffice to security needs ofmodern generati
   <img src="images/vote cross check portal sign in.jpg"><br>
   <li>Vote Status | Vote Hash | Your choice | This can be accessesd only using the Vote Hash and your Password </li><br>
   <img src="images/vote cross check.jpg"><br>
+   <h2>Technologies</h2><br>
+  <ul><li>Aadhaar API service (for biometric authentication)</li>
+    <li>Python (to communicate with blockchain and for backend and frontend API calls)</li>
+    <li>Ganache (to create private blockchain network for testing on localhost)</li>
+    <li>Flask (web framework)</li>
+  <img src="images/tech.png">
 
 
 
