@@ -54,7 +54,7 @@ Since current voting systems don’t suffice to security needs ofmodern generati
    <h2>Vote Traceback </h2>
    <p>You can trace your Vote status using this Unique Vote Hash and your Password anytime</p>
    <ul>
-  <li>Vote Tracking | Vote Hash | Password | Note: Password can be replaced with Finger Print / Retinal scan </li><br>
+  <li>Vote Tracking | Vote Hash | Password| Note: Password can be replaced with Finger Print / Retinal scan </li><br>
   <img src="images/vote cross check portal sign in.jpg"><br>
   <li>Vote Status | Vote Hash | Your choice | This can be accessesd only using the Vote Hash and your Password </li><br>
   <img src="images/vote cross check.jpg"><br>
