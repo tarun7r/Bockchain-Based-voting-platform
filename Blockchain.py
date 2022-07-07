@@ -1,12 +1,35 @@
 import hashlib
+import json
 import os
+import re
 from collections import Counter
 
-import mysql.connector
-from flask import Flask, render_template, request
+import requests
+from flask import (Flask, abort, jsonify, make_response, redirect,
+                   render_template, request, session, url_for)
+from web3 import Web3
 
 app = Flask(__name__, template_folder='template',static_folder='template/assets')
 
+
+
+rpc = "https://naklecha.blockchain.azure.com:3200/xxxxxxxxxxxxxxxxxxxxxxxxx"
+
+web3 = Web3(Web3.HTTPProvider(rpc))
+abi = '[{"constant":true,"inputs":[],"name":"candidatesCount","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function","signature":"0x2d35a8a2"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"candidates","outputs":[{"name":"id","type":"uint256"},{"name":"name","type":"string"},{"name":"voteCount","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function","signature":"0x3477ee2e"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"voters","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"view","type":"function","signature":"0xa3ec138d"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor","signature":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"name":"_candidateId","type":"uint256"}],"name":"votedEvent","type":"event","signature":"0xfff3c900d938d21d0990d786e819f29b8d05c1ef587b462b939609625b684b16"},{"constant":false,"inputs":[],"name":"end","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function","signature":"0xefbe1c1c"},{"constant":false,"inputs":[{"name":"_candidateId","type":"uint256"}],"name":"vote","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function","signature":"0x0121b93f"}]'
+contract_addr = "0x0000000000000000000000000000000000000001"
+
+
+app = Flask(__name__)
+app.secret_key = 'super secret key'
+
+accounts = [  ]
+
+privatekeys = [ ]
+
+vote_tx = []
+voted = []
+ended = 0
 
 
 
@@ -42,22 +65,15 @@ def admin():
       result = request.form
       name = result['name']
       password = result['password']
-      if name == "root" and password =="root":
-         return render_template(r"admin.html", name = name)
-      else:
-         pass
-
+      return render_template(r"admin.html", name = name)
+     
 
 
 @app.route('/result',methods = ['POST', 'GET'])
 def result():
    render_template(r'admin.html')
-   mydb = mysql.connector.connect(
-                                    host="localhost",
-                                    user="root",
-                                    password="root",
-                                    database="elections" )
-   mycursor = mydb.cursor()
+   
+
    mycursor.execute("SELECT vote FROM poll")
    
    myresult = mycursor.fetchall()
@@ -79,16 +95,8 @@ def thank():
    if request.method == 'POST':
       result = request.form
       choice =  result['poll']
-      mydb = mysql.connector.connect(
-         host="localhost",
-         user="root",
-         password="root",
-         database="elections" )
-      mycursor = mydb.cursor()
-      sql = "INSERT INTO poll (voter_id , vote) VALUES (%s, %s)"
-      val = (vote_id,choice)
-      mycursor.execute(sql, val)
-      mydb.commit()
+     
+   
       return render_template(r"thank.html",variable= vote_id, name=name)
 
 
@@ -108,19 +116,11 @@ def check():
       result = request.form
       vote_hash = result['name']
 
-      mydb = mysql.connector.connect(
-         host="localhost",
-         user="root",
-         password="root",
-         database="elections" )
       
-      mycursor = mydb.cursor()
       voter_id = vote_hash
 
 
-      sql = """SELECT vote FROM poll WHERE voter_id = '%s'""" % (voter_id)
-      mycursor.execute(sql)
-      vote = mycursor.fetchall()
+     
       if vote[0][0]=='a':
          vote = "Cristano Ronaldo"
       elif vote[0][0]=='b':
