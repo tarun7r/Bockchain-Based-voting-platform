@@ -1,5 +1,5 @@
 # Bockchain-Based-voting-platform
-Blockchain is a technology that is rapidly gaining momentum in the era of industry 4.0. With high security and transparency provisions, it is being widely used in supply chain management systems, healthcare, payments, business, IoT, voting systems, etc.
+Blockchain is a technology that is rapidly gaining momentum in the era of industry 4.0. With high security and transparency provisions, it is being widely used in supply chain management systems, healthcare, payments, business, IoT, voting systems, etc
 <H2>Why do we need it?</H2>
 Current voting systems like ballot box voting or electronic voting suffer from various security threats such as DDoS attacks, polling booth capturing, vote alteration and manipulation, malware attacks, etc, and also require huge amounts of paperwork, human resources, and time. This creates a sense of distrust among existing systems.<br><br>
 Some of the disadvantages are:
